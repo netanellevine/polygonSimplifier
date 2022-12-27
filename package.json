@@ -1,0 +1,18 @@
+{
+  "name": "polygonsimplyfier",
+  "version": "1.0.0",
+  "description": "Simplify a Polygon",
+  "main": "simplifier.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@turf/clean-coords": "^6.5.0",
+    "@turf/simplify": "^6.5.0",
+    "fs": "^0.0.1-security",
+    "simplify-geojson": "^1.0.5",
+    "simplify-geometry": "^0.0.2"
+  }
+}
