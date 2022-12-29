@@ -10,9 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "@turf/clean-coords": "^6.5.0",
+    "@turf/convex": "^6.5.0",
     "@turf/simplify": "^6.5.0",
+    "@turf/transform-scale": "^6.5.0",
     "fs": "^0.0.1-security",
+    "helpers": "^0.0.6",
+    "meta": "^2.2.25",
     "simplify-geojson": "^1.0.5",
-    "simplify-geometry": "^0.0.2"
+    "simplify-geometry": "^0.0.2",
+    "turf": "^3.0.14",
+    "utils": "^0.3.1"
   }
 }
