@@ -20,3 +20,20 @@ console.log(ans.features[0].geometry.coordinates[0].length);
 const s = (String(factor)).replace('.', '');
 const new_file_name = `scaled_${country_name}_s-${s}.geojson`;
 fs.writeFileSync(`${PATH}/${exmp_dir}/${new_file_name}`, JSON.stringify(ans));
+
+
+// combine
+// explode
+// convex
+// flatten
+// polygonize
+// lineChunk
+// unkinkPolygon
+// feature
+// featureCollection
+// multypolygon -> helpers
+// coordAll -> meta
+// getCoords -> invariant
+// getGeom -> invariant
+// concaveman -> @types
+// https://github.com/mapbox/concaveman
