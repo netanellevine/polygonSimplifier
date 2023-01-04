@@ -1,8 +1,8 @@
-// const simplify = require('simplify-geojson');
-const cleanCoords = require('@turf/clean-coords');
 const coordAll = require('@turf/meta').coordAll;
 // const polygon = require('@turf/helpers').polygon;
 // const multiPolygon = require('@turf/helpers').multiPolygon;
+const cleanCoords =  require('@turf/clean-coords');
+const turf = require('@turf/turf');
 const convex = require('@turf/convex').default;
 const fs = require("fs");
 
@@ -22,6 +22,10 @@ function simplifyShape(file, level, concavity=Infinity) {
     const before_length = coordAll(data).length;
     console.log("BEFORE ", before_length);
 
+    // OPTIONAL-> Remove redundent coordinates.
+    const clear = turf.cleanCoords(data.features[0]);
+    console.log("AFTER cleanCoords ", coordAll(clear).length);
+
     // The concavity is determined by the size of the shape and the level of simplification.
     concavity = getConcavity(level, before_length);
 
@@ -31,15 +35,16 @@ function simplifyShape(file, level, concavity=Infinity) {
     var after_length = coordAll(ans).length;
     console.log(`AFTER concavity: ${concavity}, length: ${after_length}`);
 
+    // If the shape is still too big, we increase the concavity and try again.
     var jump = 2;
     while (after_length > MAX_SIZE) {
-
         var ans = convex(ans, {'concavity': concavity});
         concavity += jump;
         jump -= 0.1;
         after_length = coordAll(ans).length;
         console.log(`AFTER concavity: ${concavity}, length: ${after_length}`);
     }
+
     const c = (String(concavity)).replace('.', '');
     fs.writeFileSync(`simplified_${country_name}_concavity-${c}_length-${after_length}.geojson`, JSON.stringify(ans));
 }
@@ -69,6 +74,10 @@ function getConcavity(level, size) {
         return level == 1 ? 17 : 15;
     }
 }
+
+
+
+
 const concat = 10
 console.log('CANADA LONG------------------------------------------------------------');
 simplifyShape(file='Canada_polygon.geojson', level = 0,  concavity=concat);

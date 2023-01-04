@@ -1,25 +1,22 @@
 {
-  "name": "polygonsimplyfier",
+  "name": "polygonsimplifier",
   "version": "1.0.0",
-  "description": "Simplify a Polygon",
-  "main": "simplifier.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "polygonSimplifier"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@turf/clean-coords": "^6.5.0",
     "@turf/convex": "^6.5.0",
-    "@turf/simplify": "^6.5.0",
-    "@turf/transform-scale": "^6.5.0",
+    "@turf/meta": "^6.5.0",
     "@turf/turf": "^6.5.0",
-    "fs": "^0.0.1-security",
-    "helpers": "^0.0.6",
-    "meta": "^0.0.6",
-    "simplify-geojson": "^1.0.5",
-    "simplify-geometry": "^0.0.2",
-    "turf": "^3.0.14",
-    "utils": "^0.2.2"
+    "turf": "^3.0.14"
   }
 }
